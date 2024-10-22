@@ -20,11 +20,9 @@ Any available arduino GPIO pin can be used as chipselect.
 #include <Arduino.h>
 #include <MCP23S17.h>
 
-MCP23S17 mcp = MCP23S17(0x00);
+int selectPin = 10; // use GPIO Pin 10
+MCP23S17 mcp = MCP23S17(0x00, selectPin);
 ```
-
-Additionaly, you can specify the `Wire` instance to use as a second argument. For instance `MCP23017(0x24, Wire1)`.  
-See included examples for further usage.
 
 ## Warning about adressing
 When IOCON.HAEN = 0 (hardware addressing disabled): If the A2 pin is high, then the device must be addressed as A2, A1, A0, = 1xx (i.e., OPCODE = b”0100 1XX’.
